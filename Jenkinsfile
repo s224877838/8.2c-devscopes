@@ -3,10 +3,13 @@ pipeline {
 
   stages {
     stage('Checkout') {
-      steps {
-        git branch: 'main', url: 'https://github.com/s224877838/8.2CDevSecOps.git'
-      }
-    }
+  steps {
+    git(
+      url: 'https://github.com/s224877838/8.2CDevSecOps.git',
+      credentialsId: 'github-pat'
+    )
+  }
+}
 
     stage('Install Dependencies') {
       steps {
